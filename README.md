@@ -1,0 +1,1 @@
+Voir la présentation [1h pour découvrir le responsive design](http://silently.github.io/responsive)
