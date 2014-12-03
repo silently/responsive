@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Le responsive design et les sites web orientés mobile</title>
+
+		<meta name="description" content="Une présentation sur le responsive designe et les sites pour mobiles et tablettes">
+		<meta name="author" content="Guillaume Denis">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="shortcut icon" href="favicon.ico" />
+
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h4>1h pour découvrir le</h4>
+					<h2 style="margin-bottom:0.5em;">responsive design</h1>
+					<h4 class="bm-2">et les sites web orientés mobile</h4>
+					<p style="margin-top:1em;">
+						<small>Guillaume Denis - <a href="http://www.pole-numerique.fr/" target="_blank">Pôle Numérique</a> - Décembre 2014</small>
+					</p>
+					<p><small>Adresse de la présentation http://...</small></p>
+				</section>
+
+				<section>
+					<h2>Motivation</h2>
+					<ul>
+						<li><a href="http://www.huffingtonpost.com/john-rampton/business-mobile-responsive-design_b_5267077.html" target="_blank">20%</a> des recherches lancées sur google depuis mobile ou tablette (début 2014)</li>
+						<li><a href="http://www.monetate.com/research/#ufh-i-25962265-ecommerce-quarterly-eq2-2014" target="_blank">30%</a> du traffic global (Q2 2014)</li>
+						<li><a href="http://www.monetate.com/research/#ufh-i-25962265-ecommerce-quarterly-eq2-2014" target="_blank">16%</a> du traffic e-commerce pour 4% des revenus (Q2 2014)</li>
+						<li>Importance de la <a href="http://ssl.gstatic.com/think/docs/mobile-path-to-purchase-5-key-findings_research-studies.pdf" target="_blank">localisation</a> du commerce de proximité (2013)</li>
+						<li>À vérifier par chacun (Google Analytics, piwik) !</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Solutions (1/2)</h2>
+					<ol>
+						<li>Applications mobiles
+							<ul style="margin-top: 0.4em;">
+								<li>multiplication des technologies (web, iOS, Android)</li>
+								<li>ou PhoneGap (non natif)</li>
+								<li>différenciants par rapport à un site :
+								<ul>
+									<li><em>scénarios d'entrée</em> : déploiement (au travers un store, installation), lancement (icône sur le bureau)</li>
+									<li>technique (si natif) : meilleure performance, fonctionnalités supplémentaires, éléments d'interface utilisateur identiques à ceux de l'OS</li>
+									<li>coûts ++</li>
+								</ul>
+							</li>
+						</ul>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Solutions (2/2)</h2>
+					<ol start="2">
+						<li>
+							Différentes versions du site = <em>adaptatif côté serveur</em>
+							<ul>
+								<li><a href=">www.lemonde.fr" target="_blank">www.lemonde.fr</a> vs <a href=">mobile.lemonde.fr" target="_blank">mobile.lemonde.fr</a></li>
+								<li>multiplication des sites</li>
+								<li>adapté à des contenus ou parcours très différents</li>
+							</ul>
+						</li>
+						<li>
+							Site responsive = <em>adaptatif côté navigateur</em> <i class="fa fa-map-marker" style="color:#a33;font-size:1.5em;margin-left:4px;"></i>
+							<ul>
+								<li>exemples : <a href="http://www.bostonglobe.com/" target="_blank">The Boston Globe</a> ou <a href="http://www.thismanslife.co.uk/projects/lab/responsivewireframes/#desktop" target="_blank">wireframes</a></li>
+								<li>une seule version à développer et à gérer</li>
+								<li>une seule URL, partage plus efficace, <a href="http://searchengineland.com/google-finally-takes-a-clear-stance-on-mobile-seo-practices-123543" target="_blank">recommandé</a> pour le référencement</li>
+								<li>également intéressant pour les mails HTML</li>
+								<li>surcoût initial si refonte du site</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+
+				<section class="separator">
+					<h2>Le <em>responsive</em><br/>c'est quoi ?</h2>
+				</section>
+
+				<section>
+					<h2>Traduction et portée</h2>
+					<ul>
+						<li>
+							<em>Responsive design</em> : site web <span style="text-decoration:underline;">adaptatif</span>
+							<ul>
+								<li>Lisibilité, confort</li>
+								<li>Facilité de navigation</li>
+								<li class="unstyled"><i class="fa fa-check" style="color:#3a3;"></i> signification la plus répandue</li>
+							</ul>
+						</li>
+						<li>
+							<em>Responsive experience</em> : site web réactif
+							<ul>
+								<li>Temps de chargement, performance</li>
+								<li>Adapté aux interactions tactiles</li>
+							</ul>
+						</li>
+						<li class="unstyled">&rarr; Expérience optimale de navigation sur tout support<br/><small style="margin-left: 2.2em;">(pour un même contenu)</small></li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h2>Les points-clef</h2>
+
+					<ul>
+						<li>
+							Auto-adaptation à la taille de l'écran
+							<ul>
+								<li>Différentes mises en page des blocs d'information</li>
+								<li>Typographie</li>
+								<li>Navigation (souvent en différentes versions)</li>
+								<li>Avec modération : cacher des blocs d'information superflus</li>
+							</ul>
+						</li>
+						<li>
+							Optimisations
+							<ul>
+								<li>Écran tactile (ex : balayage entre photos)</li>
+								<li>Temps de chargement : travail sur les images, CSS, JS...</li>
+								<li>HTML5 : type de champ/clavier dans les formulaires, <span style="text-decoration:line-through">Flash</span>, géolocalisation...</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section class="separator">
+					<h2 style="margin-bottom:.2em;">Les outils</h2>
+					<h4>pour un site web adaptatif</h4>
+				</section>
+				
+				<section>
+					<h2>Pour tester</h2>
+
+					<ul>
+						<li>Rendu suivant différentes tailles d'écran : <a href="http://responsive.is/" taget="_blank">ici</a>, <a href="http://ami.responsivedesign.is/" target="_blank">là</a> et <a href="http://mattkersley.com/responsive/" target="_blank">là</a>
+							<ul>
+								<li>Chrome Developer Tools, ou Firefox > Développement > Vue adaptative</li>
+								<li>ou simplement redimensionner son navigateur</li>
+								<li>ne vaut pas un test réel sur mobile ou tablette</li>
+							</ul>
+						</li>
+						<li>Performances :
+							<ul>
+								<li><a href="http://yslow.org/" target="_blank">yslow</a></li>
+								<li>Audits dans Chrome Developer Tools</li>
+							</ul>
+						</li>
+						<li>
+							Analyse orientée référencement : woorank <small><i class="fa fa-exclamation-triangle"></i> usage rapidement payant</small></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Outils génériques</h2>
+
+					<ul>
+						<li>Connaître les <a href="http://screensiz.es/" target="_blank">tailles</a> typiques d'écran</li>
+						<li>Boîte à <a href="http://bradfrost.github.io/this-is-responsive/patterns.html" target="_blank">idées</a>
+						<li>Papier, crayon</li>
+						<li>Frameworks CSS/JS/HTML (socles de développement)
+							<ul>
+								<li><a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a></li>
+								<li><a href="http://foundation.zurb.com/" target="_blank">ZURB Foundation</a></li>
+								<li>et <a href="http://www.hongkiat.com/blog/rwd-tools/" target="_blank">beaucoup</a> d'autres</li>
+								<li>existent comme "thèmes" dans des CMS type Joomla ou Wordpress</li>
+								<li>reposent sur les <em>Media queries CSS</em></li>
+								<li>gèrent les principaux problèmes de compatibilité entre navigateurs</li>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Exemples</h2>
+
+					<ul>
+						<li class="unstyled">Mise en page selon typiquement 3 (ou 4) tailles : mobile, tablette, écran (et écran large). Exemples :</li>
+						<li><a href="http://codepen.io/silently/pen/dPYZxO" target="_blank">#1</a> grille fixe <i class="fa fa-arrow-circle-right"></i> pile</li>
+						<li><a href="http://codepen.io/silently/pen/RNWjmg" target="_blank">#2</a> grille fluide <i class="fa fa-arrow-circle-right"></i> pile</li>
+						<li><a href="http://codepen.io/silently/pen/azvEov" target="_blank">#3</a> grille A <i class="fa fa-arrow-circle-right"></i> grille B</li>
+						<li><a href="http://codepen.io/silently/pen/azvEov" target="_blank">#4</a> retour à la ligne</li>
+						<li>cette présentation, adaptation de <a href="http://lab.hakim.se/reveal-js/#/" target="_blank">reveal.js</a> pour mobile</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+					<h2>Composants spécifiques</h2>
+
+					<ul>
+						<li>Navigation : <a href="http://responsive-nav.com/" target="_blank">responsive nav</a>, <a href="http://tinynav.viljamis.com/" target="_blank">tiny nav</a>, <a href="http://www.berriart.com/sidr/" target="_blank">sidr</a>... 
+						</li>
+						<li>Carrousel : <a href="http://basilio.github.io/responsiveCarousel/" target="_blank">responsive carousel</a>, <a href="http://owlgraphic.com/owlcarousel/" target="_blank">owl carousel</a>, <a href="http://bxslider.com/" target="_blank">bxslider</a>, <a href="http://kenwheeler.github.io/slick/" target="_blank">slick</a>...
+						</li>
+						<li>Fenêtres modales : <a href="http://vodkabears.github.io/remodal/" target="_blank">remodal</a>, <a href="http://lab.veno.it/venobox/" target="_blank">venobox</a>, <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">magnific popup</a>, <a href="http://semantic-ui.com/modules/modal.html" target="_blank">semantic UI popup</a></li>
+						<li class="unstyled"><small><i class="fa fa-check" style="color:#3a3;"></i> ces 3 composants sont également inclus dans Twitter Bootstrap et ZURB Foundation</small></li>
+						<li>Taille des polices : <a href="http://simplefocus.com/flowtype/" target="_blank">flowtype</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Nouveautés</h2>
+
+					<ul>
+						<li>Dans les navigateurs :
+							<ul>
+								<li>CSS flexbox : plus de souplesse dans les grilles</li>
+								<li>HTML5 picture : meilleures performances</li>
+							</ul>
+						</li>
+						<li>Vérifier ces fonctionnalités sur <a href="http://caniuse.com" target="_blank">caniuse</a></li>
+						<li>Se tenir <a href="http://responsivedesignweekly.com/" target="_blank">informé</a> <small><i class="fa fa-exclamation-triangle"></i> publicité</small></li>
+					</ul>
+				</section>
+
+				<section class="separator">
+					<h2 style="margin-bottom:.2em;">Les techniques</h2>
+					<h4>pour un site web réactif</h4>
+				</section>
+
+				<section>
+					<h2>Performance</h2>
+
+					<ul>
+						<li class="unstyled">Pour améliorer le temps de chargement :</li>
+						<li>Compression d'image</li>
+						<li>Minification, concaténation : JS, CSS</li>
+						<li>Trier les parties inutiles : JS, CSS</li>
+						<li>CDN, cache et expiration, gzip</li>
+						<li>et beaucoup d'autres</li>
+						<li class="unstyled">&rarr; c'est le travail du développeur</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 style="font-size:1.6em;">Connaître les conditions d'usage</h2>
+
+					<ul>
+						<li class="unstyled">Détecter des conditions dégradées :</li>
+						<li>Infos données par le navigateur (Javascript) : batterie, information réseau, lumière ambiante (<a href="http://daniemon.com/blog/responsive-is-not-just-visual/" target="_blank">référence</a>)</li>
+						<li>Toujours vérifier la disponibilité de ces fonctionnalités sur <a href="http://caniuse.com" target="_blank">caniuse</a></li>
+						<li>Calculer le temps de rendu</li>
+						<li>Récupérer le User Agent (quel OS, quel navigateur ?)</li>
+					<ul>
+				</section>
+
+				<section>
+					<h2>S'adapter aux conditions</h2>
+
+					<ul>
+						<li>
+							Anticiper :
+							<ul>
+								<li>Précharger certaines ressources (JavaScript et localStorage, prefetch)</li>
+								<li>Cas extrême : mode hors-ligne mais site mis en favori (Application Cache)</li>
+								<li>Garder l'information utile à portée de clic (0 ou 1)</li>
+							</ul>
+						</li>
+						<li>
+							Gérer un mode dégradé :
+							<ul>
+								<li>Enlever les animations</li>
+								<li>Ne pas charger certaines ressources</li>
+								<li>Modifier le contraste...</li>
+								<li class="unstyled">&rarr; coûts ++</li>
+							</ul>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Conclusion</h2>
+
+					<ul>
+						<li>Autres solutions toujours à considérer suivant le cas d'usage (application native, site en différentes versions)</li>
+						<li>Ne pas perdre son identité visuelle malgré l'utilisation d'un framework CSS</li>
+						<li>Le plus dur : penser mobile (taille, écran, connectivité)</li>
+						<li>Utiliser un outil d'analyse des visites</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fin</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				history: true,
+				center: true,
+				fragments: false,
+				transition: 'linear',
+				theme: 'night',
+				width: 800,
+				height: 600,
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
